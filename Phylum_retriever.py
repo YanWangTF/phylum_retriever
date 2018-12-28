@@ -10,7 +10,7 @@ def usage():
 """
 Usage: Phylum_retriever.py [-h] <List of Species or General names>
 
-Note: If Entrez declined the accession, please kindly type in your email address in line 43.
+Note: If Entrez declined the accession, please kindly type in your email address in line 46.
 
 Contact: yanxw.wang@gmail.com
 
@@ -49,7 +49,7 @@ x=open('Phylum_output.txt','a')
 for a in Species:
 	Taxid = Tax_ID(a)
 	if type(Taxid)==str:
-		x.write(a+'\t'+'Unknown Species, please check the species spell' +'\n')
+		x.write(a+'\t'+'Unknown Species, please check the spelling of the species name' +'\n')
 	else:
 		rank = Rank_Info(Taxid)
 		Phylum={s['ScientificName'] for s in rank[0]['LineageEx'] if s['Rank'] in ['phylum']}
